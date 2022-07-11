@@ -1,62 +1,62 @@
 {
   "packages": [
-    { "label" : "WP 1-1",
+    { "label" : "Integration, Training,\nLogistics",
       "start": 0,
-      "end": 2,
-      "milestones" : [2],
-      "legend": "worker one"
+      "end": 24,
+      "milestones" : [],
+      "legend": "Management"
     },
-    { "label" : "WP 1-2",
-      "start": 2,
-      "end": 4,
-      "milestones" : [3, 4]
-    },
-    { "label" : "WP 2-1",
-      "start": 3,
-      "end": 5,
-      "milestones" : [5],
+    { "label" : "LVK O4 run",
+      "start": 0,
+      "end": 12,
+      "milestones" : [6,12],
       "color" : "orange",
-      "legend": "worker two"
+      "legend": "Proj1: TestingGR"
     },
-    { "label" : "WP 2-2",
-      "start": 6,
-      "end": 8,
-      "milestones" : [8],
-      "color" : "orange"
-    },
-    { "label" : "WP 2-3",
-      "start": 7,
-      "end": 9,
-      "milestones" : [8],
-      "color" : "orange"
-    },
-    { "label" : "WP 2-4",
-      "start": 8,
+    { "label" : "GW190521-type analysis",
+      "start": 0,
       "end": 9,
       "milestones" : [9],
+      "deliverables" : [],
       "color" : "orange"
     },
-    { "label" : "WP 3-1",
-      "start": 2,
-      "end": 6,
-      "milestones" : [4,6],
+    { "label" : "O4 TestingGR",
+      "start": 0,
+      "end": 18,
+      "milestones" : [3,18],
+      "deliverables" : [],
+      "color" : "orange"
+    },
+    { "label" : "Machine Learning \nModel Implementation",
+      "start": 3,
+      "end": 9,
+      "milestones" : [9],
       "color" : "lightgreen",
-      "legend": "worker three"
+      "legend": "Proj2: PrimordialBH"
     },
-    { "label" : "WP 3-2",
-      "start": 4,
-      "end": 8,
-      "milestones" : [8],
+    { "label" : "Mock data",
+      "start": 9,
+      "end": 18,
+      "milestones" : [18],
+      "deliverables" : [],
       "color" : "lightgreen"
     },
-    { "label" : "WP 3-3",
-      "start": 6,
-      "end": 12,
+    { "label" : "Real data",
+      "start": 12,
+      "end": 22,
+      "milestones" : [22],
       "color" : "lightgreen"
+    },
+    { "label" : "Paper Writing,\nConference",
+      "start": 9,
+      "end": 24,
+      "color" : "lightcoral",
+      "deliverables" : [10,16,19,23],
+      "legend" : "Publication $\\&$ Disseminaiton"
     }
   ],
 
-"title" : " Sample GANTT for \\textbf{myProject}",
-"xlabel" : "time (weeks)",
-"xticks" : [2,4,6,8,10,12]
+"title" : " Gantt chart for \\textit{HORIZONGW}",
+"xlabel" : "Number of Months",
+"xticks" : [2,4,6,8,10,12,14,16,18,20,22,24]
 }

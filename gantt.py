@@ -54,6 +54,11 @@ class Package():
             pass
 
         try:
+            self.deliverables = pkg['deliverables']
+        except KeyError:
+            pass
+
+        try:
             self.color = pkg['color']
         except KeyError:
             self.color = DEFCOLOR
@@ -106,12 +111,16 @@ class Gantt():
 
         # optionals
         self.milestones = {}
+        self.deliverables = {}
         for pkg in self.packages:
             try:
                 self.milestones[pkg.label] = pkg.milestones
             except AttributeError:
                 pass
-
+            try:
+                self.deliverables[pkg.label] = pkg.deliverables
+            except AttributeError:
+                pass
         try:
             self.xlabel = data['xlabel']
         except KeyError:
@@ -156,7 +165,7 @@ class Gantt():
 
         # add title and package names
         plt.yticks(self.yPos, self.labels)
-        plt.title(self.title)
+        #plt.title(self.title)
 
         if self.xlabel:
             plt.xlabel(self.xlabel)
@@ -180,7 +189,27 @@ class Gantt():
                 x += [value]
 
         plt.scatter(x, y, s=120, marker="D",
-                    color="yellow", edgecolor="black", zorder=3)
+                    color="yellow", edgecolor="black", zorder=3,label='Milestones')
+        plt.legend()
+
+    def add_deliverables(self):
+        """Add milestones to GANTT chart.
+        The milestones are simple yellow diamonds
+        """
+
+        if not self.deliverables:
+            return
+
+        x = []
+        y = []
+        for key in self.deliverables.keys():
+            for value in self.deliverables[key]:
+                y += [self.yPos[self.labels.index(key)]]
+                x += [value]
+
+        plt.scatter(x, y, s=60, marker="o",
+                    color="yellow", edgecolor="black", zorder=3,label='Publications')
+        plt.legend()
 
     def add_legend(self):
         """Add a legend to the plot iff there are legend entries in
@@ -196,7 +225,7 @@ class Gantt():
 
         if cnt > 0:
             self.legend = self.ax.legend(
-                shadow=False, ncol=3, fontsize="medium")
+                shadow=False, ncol=3, loc='upper center', bbox_to_anchor=(0.4, 1.2))
 
     def render(self):
         """ Prepare data for plotting
@@ -222,6 +251,7 @@ class Gantt():
         # format plot
         self.format()
         self.add_milestones()
+        self.add_deliverables()
         self.add_legend()
 
     @staticmethod
